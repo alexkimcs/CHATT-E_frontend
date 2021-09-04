@@ -21,6 +21,7 @@ const LogoContainer = styled.div`
     h1{
         font-size: 3em;
         margin: 0;
+        color: white;
     }
     
     
