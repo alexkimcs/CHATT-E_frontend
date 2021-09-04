@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import './App.css';
 import Header from './components/Header';
+import SignUp from './components/SignUp';
 import Snapshots from './components/Snapshots';
 import {Route, Router, Switch} from 'react-router-dom';
 
@@ -46,7 +47,7 @@ const StyledMain = styled.main`
 function App() {
   return (
     <div className="App">
-      <Header /> 
+      {/* <Header /> 
       <StyledMain>
         <StyledDescription>
           <p>Lorem ipsum dolor sit amet, consectetur 
@@ -62,7 +63,8 @@ function App() {
           <button>Sign Up</button>
           <button>Sign In</button>
         </StyledButtons>
-      </StyledMain>
+      </StyledMain> */}
+      <SignUp />
     </div> 
   );
 }
