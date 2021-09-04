@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6085A6;
+    background-color: #6085A6; 
     border-radius: 0 0 4em 4em;
     position: absolute;
 `;
