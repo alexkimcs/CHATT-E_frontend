@@ -7,6 +7,6 @@ function Snapshots() {
             
         </div>
     )
-}
+} 
 
 export default Snapshots
