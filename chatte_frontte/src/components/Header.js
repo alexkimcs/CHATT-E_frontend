@@ -20,6 +20,7 @@ const LogoContainer = styled.div`
         font-style: normal;
     }
     
+    
 `;
 
 function Header(props) {
