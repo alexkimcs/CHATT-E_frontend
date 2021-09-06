@@ -47,7 +47,7 @@ const StyledMain = styled.main`
 function App() {
   return (
     <div className="App">
-      {/* <Header /> 
+      <Header /> 
       <StyledMain>
         <StyledDescription>
           <p>Lorem ipsum dolor sit amet, consectetur 
@@ -63,7 +63,7 @@ function App() {
           <button>Sign Up</button>
           <button>Sign In</button>
         </StyledButtons>
-      </StyledMain> */}
+      </StyledMain>
       <SignUp />
     </div> 
   );
