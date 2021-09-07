@@ -2,23 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 
+import Logo from './Logo'
+
 const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 `
 
-
-
-
 const StyledChatRooms = styled.div`
     width: 25%;
     height: 700px;
     background-color: #6085A6;
-
     display: inline-block;
-
-    
     border-radius: 0px 25px 25px 0px;
 `
 
@@ -27,18 +23,11 @@ const StyledChat = styled.div`
     height: 700px;
     background-color: #6085A6;
     border-radius: 25px 0px 0px 25px;
-
-
 `
-
-
-
-
 
 const StyledChatContainer = styled.div`
     height: 60px;
     width: 100%;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -50,7 +39,6 @@ const StyledChatRoom = styled.button`
     border-radius: 0px 30px 30px 0px;
     border-style: none;
     background-color: rgba(230,230,230,.75);
-
     font-size: 15px;
 `
 
@@ -60,21 +48,15 @@ const StyledSelect = styled.button`
     border-radius: 30px;
     border-style: none;
     background-color: #012340;
-
     margin-right: 15px;
-
     font-size: 15px;
     color: white;
-
 `
 
 const StyledTextContainer = styled.div`
     margin-left: auto;
-
     height: 60px;
     width: 95%;
-    
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -88,7 +70,6 @@ const StyledInput = styled.input`
     border-style: none;
     background-color: rgba(230,230,230,.75);
     padding-left: 15px;
-
     display: block;
     font-size: 18px;
     :focus{
@@ -100,7 +81,6 @@ const StyledMessagesContainer = styled.div`
     margin-left: auto;
     height: 640px;
     width: 95%;
-
     display: block;
 `
 
@@ -111,14 +91,9 @@ const StyledSend = styled.button`
     border-style: none;
     background-color: #012340;
     margin-right: 10px;
-
-
     font-size: 15px;
     color: white;
-
 `
-
-
 
 const HeaderContainer = styled.div`
     background-color: rgba(230,230,230,.75);
@@ -133,6 +108,9 @@ const HeaderContainer = styled.div`
         color: black;
     }
     
+    display: flex;
+    flex-direction: row;
+    
     
 `;
 
@@ -143,6 +121,7 @@ function Chat() {
             {/* sidebar with chats */}
             <StyledChatRooms>
                 <HeaderContainer>
+                    <Logo />
                     <h1>chats</h1>
                 </HeaderContainer>
 
