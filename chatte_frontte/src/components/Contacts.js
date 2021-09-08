@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Logo from './Logo'
 
 const StyledContainer = styled.div`
     display: flex;
@@ -10,6 +11,7 @@ const StyledContainer = styled.div`
 
 const StyledContactsContainer = styled.div`
     width: 48%;
+    min-width: 200px;
     height: 700px;
     background-color: #6085A6;
     display: inline-block;
@@ -17,6 +19,8 @@ const StyledContactsContainer = styled.div`
 `
 
 const HeaderContainer = styled.div`
+
+height: 60px;
     background-color: rgba(230,230,230,.75);
     border-radius: 0 2em 2em 0;
     padding: 0.5em;
@@ -29,13 +33,16 @@ const HeaderContainer = styled.div`
         color: black;
     }
     
+    display: flex;
+    flex-direction: row;
+    align-items: left;
     
 `
 
 const StyledContact = styled.div`
-    margin-left: auto;
     margin-right: auto;
-    width: 95%;
+    max-width: 400px;
+    min-width: 170px;
     height: 70px;
 
     display: flex;
@@ -46,16 +53,22 @@ const StyledContact = styled.div`
 `
 
 const StyledSmallProfile = styled.div`
-    width: 65px;
-    height: 65px;
-    border-radius: 32.5px;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
     background-color: rgba(230,230,230,.75);
 
+    margin-top: 7.5px;
+    @media screen and (max-width: 900px) {
+
+        display: none;
+
+      }
 `
 
 const StyledUsername = styled.div`
-    width: 250px;
-    height: 50px;
+    width: 200px;
+    height: 40px;
     border-radius: 30px;
 
     background-color: rgba(230,230,230,.75);
@@ -79,12 +92,21 @@ const StyledButtons = styled.div`
 
     button {
         background-color: #012340;
-        width: 6em;
-        height: 2.5em;
-        font-size: 1.2em;
+        width: 90px;
+        height: 40px;
+        font-size: 17px;
         color: white;
         border-radius: 0.8em;
-        border: none;
+        border-style: solid;
+        border-color: #012340;
+
+        :hover{
+            border-color: white;
+        }
+    
+        :active{
+            background-color: #5282A1;
+        }
     }
 `;
 
@@ -120,13 +142,19 @@ const StyledUserContainer = styled.div`
 
     align-items: end;
 
+    @media screen and (max-width: 900px) {
+
+        grid-template-columns: repeat(1, 1fr);
+
+      }
+
 `
 
 const StyledInfoDiv = styled.div`
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
-    height: 50px;
+    width: 180px;
+    height: 40px;
     border-radius: 30px;
 
     background-color: rgba(230,230,230,.75);
@@ -143,7 +171,8 @@ function Contacts() {
             <StyledContactsContainer>
 
                 <HeaderContainer>
-                    <h1>Contacts</h1>
+                    <Logo />
+                    <h1 style={{marginLeft: "10%"}}>Contacts</h1>
                 </HeaderContainer>
 
                 <StyledContact>
@@ -195,24 +224,9 @@ function Contacts() {
                     
                 </StyledContact>
 
-
-
-
-
-
-
-
-
             </StyledContactsContainer>
 
-
-
-
-
-
-
             <StyledInfoContainer>
-
 
                 <StyledProfile>
 
@@ -240,9 +254,6 @@ function Contacts() {
 
 
                 </StyledUserContainer>
-
-                
-
 
 
             </StyledInfoContainer>

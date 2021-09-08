@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Logo from './Logo'
 
 const Styledheader = styled.div`
 
@@ -16,14 +17,18 @@ const Styledheader = styled.div`
 
 `
 
-const Styledlogo = styled.div`
+const Styledlogo = styled.button`
     width: 300px;
     height: 70px;
+    border-style: none;
     border-radius: 30px;
     background-color: rgba(230,230,230,.75);
 
     margin-left: auto;
     margin-right: auto;
+
+    font-size: 35px;
+
 `
 
 
@@ -53,8 +58,8 @@ const StyledProfile = styled.div`
 `
 
 const Styledusername = styled.input`
-    width: 300px;
-    height: 40px;
+    width: 250px;
+    height: 30px;
     border-radius: 30px;
     border-style: none;
     background-color: rgba(230,230,230,.75);
@@ -71,8 +76,8 @@ const Styledusername = styled.input`
     }
 `
 const Styledpassword = styled.input`
-    width: 300px;
-    height: 40px;
+    width: 250px;
+    height: 30px;
     border-radius: 30px;
     border-style: none;
     background-color: rgba(230,230,230,.75);
@@ -95,22 +100,36 @@ const StyledButtons = styled.div`
     justify-content: center;
 
     margin-top: 2em;
-
+    margin-right: auto;
+    margin-left: auto;
 
 
     
 
     button {
-        background-color: rgba(230,230,230,.75);
-        width: 6em;
-        height: 2.5em;
-        font-size: 1.2em;
-        border-radius: 2em;
-        border: none;
+        background-color: #012340;
+        width: 80px;
+        height: 40px;
+        font-size: 17px;
+        color: white;
+        border-radius: 15px;
+        border-style: solid;
+        border-color: #012340;
 
         margin-right: 10px;
         margin-left: 10px;
+
+        :hover{
+            border-color: white;
+        }
+    
+        :active{
+            background-color: #5282A1;
+        }
     }
+
+
+
 `;
 
 
@@ -120,7 +139,7 @@ function Signin() {
         <body >
             <Styledheader>
                 <Styledlogo>
-
+                    Chat-E
                 </Styledlogo>
 
 
@@ -142,13 +161,8 @@ function Signin() {
 
 
                 <StyledButtons>
-                    <button>
-                        Sign in
-                    </button>
-
-                    <button>
-                        Sign up
-                    </button>
+                        <button>Sign in</button>
+                        <button>Sign up</button>
                 </StyledButtons>
             </Styledcontainer>
 

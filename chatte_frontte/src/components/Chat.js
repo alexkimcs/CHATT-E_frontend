@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState ,useEffect} from 'react'
 import styled from 'styled-components'
 
+
+import Message from './Message'
 
 import Logo from './Logo'
 
@@ -12,10 +14,17 @@ const StyledContainer = styled.div`
 
 const StyledChatRooms = styled.div`
     width: 25%;
+    min-width: 200px;
     height: 700px;
     background-color: #6085A6;
     display: inline-block;
     border-radius: 0px 25px 25px 0px;
+
+    @media screen and (max-width: 650px) {
+
+        border-radius: 0px;
+
+      }
 `
 
 const StyledChat = styled.div`
@@ -23,10 +32,16 @@ const StyledChat = styled.div`
     height: 700px;
     background-color: #6085A6;
     border-radius: 25px 0px 0px 25px;
+
+    @media screen and (max-width: 650px) {
+
+        border-radius: 0px;
+
+      }
 `
 
 const StyledChatContainer = styled.div`
-    height: 60px;
+    height: 40px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -40,41 +55,54 @@ const StyledChatRoom = styled.button`
     border-style: none;
     background-color: rgba(230,230,230,.75);
     font-size: 15px;
+
 `
 
 const StyledSelect = styled.button`
     width: 80px;
     height: 80%;
     border-radius: 30px;
-    border-style: none;
+    border-style: solid;
+    border-color: #012340;
     background-color: #012340;
     margin-right: 15px;
     font-size: 15px;
     color: white;
+
+    :hover{
+        border-color: white;
+    }
+
+    :active{
+        background-color: #5282A1;
+    }
 `
 
-const StyledTextContainer = styled.div`
+const StyledTextContainer = styled.form`
     margin-left: auto;
-    height: 60px;
+    height: 50px;
     width: 95%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 `
 
 
 const StyledInput = styled.input`
     width: 85%;
     height: 80%;
-    border-radius: 20px;
+    border-radius: 10px;
     border-style: none;
     background-color: rgba(230,230,230,.75);
     padding-left: 15px;
-    display: block;
-    font-size: 18px;
+    display: inline-block;
+    font-size: 14px;
     :focus{
         outline: none;
     }
+
+    
 `
 
 const StyledMessagesContainer = styled.div`
@@ -82,17 +110,33 @@ const StyledMessagesContainer = styled.div`
     height: 640px;
     width: 95%;
     display: block;
+
+    button:nth-child(odd) {
+        background-color: antiquewhite;
+    }
 `
 
 const StyledSend = styled.button`
-    width: 100px;
-    height: 80%;
-    border-radius: 30px;
-    border-style: none;
+    width: 80px;
+    height: 85%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #012340;
     background-color: #012340;
     margin-right: 10px;
     font-size: 15px;
     color: white;
+
+    display: inline-block;
+
+
+    :hover{
+        border-color: white;
+    }
+
+    :active{
+        background-color: #5282A1;
+    }
 `
 
 const HeaderContainer = styled.div`
@@ -111,18 +155,22 @@ const HeaderContainer = styled.div`
     display: flex;
     flex-direction: row;
     
-    
 `;
 
 
-function Chat() {
+
+
+function Chat(props) {
+    const test = props.test;
+
+
     return (
         <StyledContainer>
             {/* sidebar with chats */}
             <StyledChatRooms>
                 <HeaderContainer>
                     <Logo />
-                    <h1>chats</h1>
+                    <h1>Chats</h1>
                 </HeaderContainer>
 
                 {/* The following is one chat */}
@@ -164,16 +212,26 @@ function Chat() {
             {/* Main chat selected, with messages */}
             <StyledChat>
                 <StyledMessagesContainer>
+
+                    {test.map((msg)=><Message test={msg}/>)}
+
+                    
                 </StyledMessagesContainer>
-                <StyledTextContainer>
-                    <StyledInput></StyledInput>
+               
 
-                    <StyledSend>
+                    
+                    
+                    <StyledTextContainer id='messageForm' action='' onSubmit={props.submitHandler}>
+            
+                            <StyledInput  type='text' name='message' >
+                            </StyledInput>
+                            <StyledSend>
+                                Send
+                            </StyledSend>
+                        
+                    </StyledTextContainer>
 
-                        Send
-                    </StyledSend>
-
-                </StyledTextContainer>
+                    
 
             </StyledChat>
 
