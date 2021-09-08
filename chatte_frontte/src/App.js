@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import SignUp from './components/SignUp';
 import Snapshots from './components/Snapshots';
+
+import Chat from './components/Chat'
 import {Route, Router, Switch} from 'react-router-dom';
 
 const StyledDescription = styled.div`
@@ -46,26 +48,28 @@ const StyledMain = styled.main`
 
 function App() {
   return (
-    <div className="App">
-      <Header /> 
-      <StyledMain>
-        <StyledDescription>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit, sed do eiusmod tempor incididunt 
-            t labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat.</p>
-        </StyledDescription>
-        <Snapshots/>
+    <Chat test={["noice"]}/>
+    // <div className="App">
+      
+    //   <Header /> 
+    //   <StyledMain>
+    //     <StyledDescription>
+    //       <p>Lorem ipsum dolor sit amet, consectetur 
+    //         adipiscing elit, sed do eiusmod tempor incididunt 
+    //         t labore et dolore magna aliqua. Ut enim ad minim 
+    //         veniam, quis nostrud exercitation ullamco laboris 
+    //         nisi ut aliquip ex ea commodo consequat.</p>
+    //     </StyledDescription>
+    //     <Snapshots/>
 
-        <StyledButtons>
+    //     <StyledButtons>
 
-          <button>Sign Up</button>
-          <button>Sign In</button>
-        </StyledButtons>
-      </StyledMain>
-      <SignUp />
-    </div> 
+    //       <button>Sign Up</button>
+    //       <button>Sign In</button>
+    //     </StyledButtons>
+    //   </StyledMain> */}
+    //   {/* <SignUp />
+    // </div> 
   );
 }
 
