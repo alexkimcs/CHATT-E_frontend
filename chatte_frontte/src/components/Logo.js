@@ -13,6 +13,13 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+
+    @media screen and (max-width: 850px) {
+
+        display: none;
+
+      }
 `
 
 const StyledRectangle = styled.div`
@@ -24,6 +31,8 @@ const StyledRectangle = styled.div`
     width: 75%;
     height: 15%;
     background-color: rgb(230,230,230);
+
+
 `
 
 
