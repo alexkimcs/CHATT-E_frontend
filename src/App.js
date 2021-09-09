@@ -32,7 +32,7 @@ function App() {
   
   
   function submitHandler(event) {
-    event.preventDefault();
+    // event.preventDefault();
   
     socket.emit('chatMessage', event.target.firstChild.value);
   
@@ -47,7 +47,7 @@ function App() {
     }
   
     const sendMessage = (event) => {
-      event.preventDefault(); 
+      // event.preventDefault(); 
       
       if(message) {
         socket.emit('chatMessage', message);
