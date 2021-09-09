@@ -1,0 +1,26 @@
+@import url("https://use.typekit.net/bxl4mvb.css");
+
+body {
+  margin: 0;
+  font-family: eldwin-script, sans-serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #012340;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
