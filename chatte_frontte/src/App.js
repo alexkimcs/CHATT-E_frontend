@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+
 import './App.css';
 import Header from './components/Header';
+import Signin from './components/Signin'
 import SignUp from './components/SignUp';
 import Snapshots from './components/Snapshots';
-
+import Landing from './components/Landing'
 import Chat from './components/Chat'
 import {Route, Router, Switch} from 'react-router-dom';
 
@@ -48,28 +50,8 @@ const StyledMain = styled.main`
 
 function App() {
   return (
-    <Chat test={["noice"]}/>
-    // <div className="App">
-      
-    //   <Header /> 
-    //   <StyledMain>
-    //     <StyledDescription>
-    //       <p>Lorem ipsum dolor sit amet, consectetur 
-    //         adipiscing elit, sed do eiusmod tempor incididunt 
-    //         t labore et dolore magna aliqua. Ut enim ad minim 
-    //         veniam, quis nostrud exercitation ullamco laboris 
-    //         nisi ut aliquip ex ea commodo consequat.</p>
-    //     </StyledDescription>
-    //     <Snapshots/>
-
-    //     <StyledButtons>
-
-    //       <button>Sign Up</button>
-    //       <button>Sign In</button>
-    //     </StyledButtons>
-    //   </StyledMain> */}
-    //   {/* <SignUp />
-    // </div> 
+    // <Chat test={["noice"]}/>
+    <Landing/>
   );
 }
 
