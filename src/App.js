@@ -24,7 +24,7 @@ function App() {
   const [mongoMessages, setMongoMessages] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:4001/api/messages').then(response => {
+    axios.get('https://chatte-deploy.herokuapp.com/api/messages').then(response => {
       // gets the initial data
       setMongoMessages(response.data)
     })
@@ -36,7 +36,7 @@ function App() {
   
     socket.emit('chatMessage', event.target.firstChild.value);
   
-    axios.post("http://localhost:4001/api/messages", {
+    axios.post("https://chatte-deploy.herokuapp.com/api/messages", {
       name: 'User',
       message: event.target.firstChild.value
     })
