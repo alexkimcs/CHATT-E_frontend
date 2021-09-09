@@ -1,7 +1,9 @@
 # CHATT-E_frontend
 # Chatte
 
-A real time chat application using MERN stack
+A real time chat application using MERN stack 
+This is front end of the application
+ - [Backend](https://github.com/alexkimcs/CHATT-E_backend)
 
 ## Getting Started
 
