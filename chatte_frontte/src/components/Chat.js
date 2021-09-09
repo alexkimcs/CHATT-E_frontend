@@ -1,6 +1,6 @@
 import React, {useState ,useEffect} from 'react'
 import styled from 'styled-components'
-
+import ScrollToBottom from'react-scroll-to-bottom'
 
 import Message from './Message'
 
@@ -114,10 +114,13 @@ const StyledMessagesContainer = styled.div`
     margin-left: auto;
     height: 640px;
     width: 95%;
-    display: block;
+    flex: auto;
+
 
     button:nth-child(odd) {
         background-color: antiquewhite;
+        margin-left: auto;
+        margin-right: 10%;
     }
 `
 
@@ -181,6 +184,8 @@ function Chat(props) {
                 </HeaderContainer>
 
                 {/* The following is one chat */}
+
+
                 <StyledChatContainer>
                     <StyledChatRoom>
                         Chat room 1
@@ -217,32 +222,34 @@ function Chat(props) {
             </StyledChatRooms>
 
             {/* Main chat selected, with messages */}
-            <StyledChat>
-                <StyledMessagesContainer>
-
-                    {test.map((msg)=><Message test={msg}/>)}
-
-                    
-                </StyledMessagesContainer>
-               
-
-                    
-                    
-                    <StyledTextContainer id='messageForm' action='' onSubmit={props.submitHandler}>
             
-                            <StyledInput >
-                                <input type='text' name='message' autoComplete="off"/>
-                            </StyledInput>
-                            <StyledSend>
-                                Send
-                            </StyledSend>
-                        
-                    </StyledTextContainer>
+            <StyledChat>
+                <ScrollToBottom>
 
+                    <StyledMessagesContainer>
+
+                        {test.map((msg)=><Message test={msg}/>)}
+
+                        
+                    </StyledMessagesContainer>
+                
+
+                        
+                        
                     
+                </ScrollToBottom>
+                <StyledTextContainer id='messageForm' action='' onSubmit={props.submitHandler}>
+                
+                <StyledInput >
+                    <input placeholder="Message here" type='text' name='message' autoComplete="off"/>
+                </StyledInput>
+                <StyledSend>
+                    Send
+                </StyledSend>
+            
+        </StyledTextContainer>
 
             </StyledChat>
-
         </StyledContainer>
     )
 }
