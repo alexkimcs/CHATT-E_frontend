@@ -89,11 +89,8 @@ const StyledTextContainer = styled.form`
 `
 
 
-const StyledInput = styled.div`
-    width: 85%;
-
-    input{
-        width: 95%;
+const StyledInput = styled.input`
+        width: 85%;
         height: 80%;
         border-radius: 10px;
         border-style: none;
@@ -103,11 +100,8 @@ const StyledInput = styled.div`
         font-size: 14px;
         :focus{
             outline: none;
+        
         }
-    }
-
-
-    
 `
 
 const StyledMessagesContainer = styled.div`
@@ -170,9 +164,7 @@ const HeaderContainer = styled.div`
 
 
 
-function Chat(props) {
-    const test = props.test;
-
+function Chat({message, messages, setMessage, sendMessage, submitHandler, mongoMessages}) {
 
     return (
         <StyledContainer>
@@ -228,7 +220,7 @@ function Chat(props) {
 
                     <StyledMessagesContainer>
 
-                        {test.map((msg)=><Message test={msg}/>)}
+                    {mongoMessages.map((msg, i) => <Message key={i} message={msg.message} id={msg._id} />)}
 
                         
                     </StyledMessagesContainer>
@@ -238,11 +230,16 @@ function Chat(props) {
                         
                     
                 </ScrollToBottom>
-                <StyledTextContainer id='messageForm' action='' onSubmit={props.submitHandler}>
+                <StyledTextContainer id='messageForm' action='' onSubmit={event => submitHandler(event)}>
                 
-                <StyledInput >
-                    <input placeholder="Message here" type='text' name='message' autoComplete="off"/>
-                </StyledInput>
+                <StyledInput  
+                    type='text' 
+                    name='message'
+                    placeholder="Type a message..."
+                             
+                    value={message}
+                    onChange={({ target: { value } }) => setMessage(value)}
+                />
                 <StyledSend>
                     Send
                 </StyledSend>
