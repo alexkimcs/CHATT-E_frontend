@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import axios from 'axios';
 
 const StyledMessage = styled.button`
     min-width: 70px;
@@ -19,13 +20,21 @@ const StyledMessage = styled.button`
     padding-bottom: 7px;
 
     word-wrap: break-word;
-    white-space: normal
+    white-space: normal;
 `;
 
 function Message(props) {
+
+    function handleClick(event) {
+        // event.preventDefault();
+        window.location.reload();
+        axios.delete(`http://localhost:4001/api/messages/${props.id}`, {})
+        .then((res) => console.log(res.data));
+    }
+
     return (
-        <StyledMessage>
-            {props.test}
+        <StyledMessage onClick={handleClick} id={props.id}>
+            {props.message}
         </StyledMessage>
     )
 }
