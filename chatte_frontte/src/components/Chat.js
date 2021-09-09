@@ -89,18 +89,23 @@ const StyledTextContainer = styled.form`
 `
 
 
-const StyledInput = styled.input`
+const StyledInput = styled.div`
     width: 85%;
-    height: 80%;
-    border-radius: 10px;
-    border-style: none;
-    background-color: rgba(230,230,230,.75);
-    padding-left: 15px;
-    display: inline-block;
-    font-size: 14px;
-    :focus{
-        outline: none;
+
+    input{
+        width: 95%;
+        height: 80%;
+        border-radius: 10px;
+        border-style: none;
+        background-color: rgba(230,230,230,.75);
+        padding-left: 15px;
+        display: inline-block;
+        font-size: 14px;
+        :focus{
+            outline: none;
+        }
     }
+
 
     
 `
@@ -146,6 +151,7 @@ const HeaderContainer = styled.div`
     margin-bottom: 20px;
     margin-top: 10px;
     width: 92%;
+    height:60px;
     h1{
         font-size: 2.5em;
         margin: 0;
@@ -154,6 +160,7 @@ const HeaderContainer = styled.div`
     
     display: flex;
     flex-direction: row;
+    align-items: center;
     
 `;
 
@@ -223,7 +230,8 @@ function Chat(props) {
                     
                     <StyledTextContainer id='messageForm' action='' onSubmit={props.submitHandler}>
             
-                            <StyledInput  type='text' name='message' >
+                            <StyledInput >
+                                <input type='text' name='message' autoComplete="off"/>
                             </StyledInput>
                             <StyledSend>
                                 Send
