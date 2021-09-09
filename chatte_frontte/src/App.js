@@ -9,11 +9,12 @@ import Chat from './components/Chat'
 import {Route} from 'react-router-dom';
 
 function App() {
+    const test = ["hi", "oh hi der","this is a test ","this is a test ","this is a test ","this is a test ","this is a test ","this is a test ","this is a test this is a test this is a test this is a test this is a test this is a test this is a test this is a test"]
   return (
     <div>
       <Route exact path="/signup" component={SignUp}/>
       <Route exact path="/signin" component={Signin}/> 
-      <Route exact path="/chat" render = {(props)=><Chat test={["test","test2"]}/>} />
+      <Route exact path="/chat" render = {(props)=><Chat test={test}/>} />
       <Route exact path="/" component={Landing}/>
 
 
