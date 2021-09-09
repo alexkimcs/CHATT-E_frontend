@@ -4,17 +4,19 @@ import Header from './Header';
 import Snapshots from './Snapshots';
 
 import Chat from './Chat'
-import {Route, Router, Switch} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 const StyledDescription = styled.div`
     width: 50%;
+    max-height: 220px;
     margin-top: 2em;
     background-color: rgba(230,230,230,.75);
     padding: 1em;
     border-radius: 1.5em;
 
     p {
-      font-size: 1.25em;
-      text-align: justify;
+        font-size: 1.25em;
+        text-align: center;
+
     }
 `;
 
@@ -28,7 +30,7 @@ const StyledButtons = styled.div`
 
     button {
         background-color: rgb(192,192,192);
-        width: 5.5em;
+        min-width: 5.5em;
         height: 2.5em;
         font-size: 1.1em;
         border-radius: 2em;
@@ -63,18 +65,19 @@ function App() {
       <Header /> 
       <StyledMain>
         <StyledDescription>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipiscing elit, sed do eiusmod tempor incididunt 
-            t labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Chat with your friends in real time.</p>
         </StyledDescription>
         <Snapshots/>
 
         <StyledButtons>
-
-          <button>Sign Up</button>
-          <button>Sign In</button>
+            <Link to="/signup">
+                <button>Sign Up</button>
+            </Link>
+         
+            <Link to="/signin">
+                <button>Sign In</button>
+            </Link>
+         
         </StyledButtons>
       </StyledMain> 
 

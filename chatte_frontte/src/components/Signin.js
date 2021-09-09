@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from './Logo'
+import {Link} from 'react-router-dom';
 
 const Styledheader = styled.div`
 
@@ -161,7 +161,10 @@ function Signin() {
 
 
                 <StyledButtons>
-                        <button>Sign in</button>
+                    <Link to="/chat">
+                        <button>Log in</button>
+                    </Link>
+                        
                         <button>Sign up</button>
                 </StyledButtons>
             </Styledcontainer>
