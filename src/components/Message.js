@@ -28,7 +28,7 @@ function Message(props) {
     function handleClick(event) {
         // event.preventDefault();
         window.location.reload();
-        axios.delete(`http://localhost:4001/api/messages/${props.id}`, {})
+        axios.delete(`https://chatte-deploy.herokuapp.com/api/messages/${props.id}`, {})
         .then((res) => console.log(res.data));
     }
 
