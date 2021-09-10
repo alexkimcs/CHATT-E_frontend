@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -25,18 +25,53 @@ const StyledMessage = styled.button`
 
 function Message(props) {
 
+    const [edit, setEdit] = useState(false);
+    const [editedMessage, setEditedMessage] = useState(props.message);
+
     function handleClick(event) {
+
+        if (event.shiftKey) {
+            axios.delete(`http://localhost:4001/api/messages/${props.id}`, {})
+            .then((res) => {
+                console.log(res.data);
+                window.location.reload();
+            });
+        } else {
+            setEdit(!edit);
+        }
+
         // event.preventDefault();
-        window.location.reload();
-        axios.delete(`http://localhost:4001/api/messages/${props.id}`, {})
-        .then((res) => console.log(res.data));
+        
+    }
+    const handleEditChange = (event) => {
+        setEditedMessage(event.target.value);
     }
 
-    return (
+    const handleEdit = () => {
+        axios.put(`http://localhost:4001/api/messages/${props.id}`, {message: editedMessage})
+            .then((res) => {
+                console.log(res.data);
+                window.location.reload();
+            });
+    }
+
+    
+    
+    if (!edit) {
+        return (
         <StyledMessage onClick={handleClick} id={props.id}>
             {props.message}
         </StyledMessage>
-    )
+        )
+    } else {
+        return (
+        <StyledMessage onClick={handleClick} id={props.id}>
+            <input type='text' value={editedMessage} onChange={handleEditChange} />
+            <button type='button' onClick={handleEdit} >edit</button>
+        </StyledMessage>
+        )
+    }
+    
 }
 
 export default Message;

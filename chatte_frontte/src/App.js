@@ -9,7 +9,7 @@ import Landing from './components/Landing'
 import Chat from './components/Chat'
 import {Route} from 'react-router-dom';
 
-let socket = io('https://chatte-deploy.herokuapp.com/);
+let socket = io('http://localhost:5000/');
 
 function App() {
 
