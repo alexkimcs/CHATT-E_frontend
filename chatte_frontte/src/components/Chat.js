@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 25%;
+    margin-top: 15%;
 
     @media screen and (max-width:768px) {
         display: block;
@@ -70,7 +70,7 @@ const StyledChatContainer = styled.div`
 
 const StyledChatRoom = styled.button`
     width: 65%;
-    height: 80%;
+    height: 50%;
     border-radius: 0px 30px 30px 0px;
     border-style: none;
     background-color: rgba(230,230,230,.75);
@@ -86,7 +86,7 @@ const StyledChatRoom = styled.button`
 
 const StyledSelect = styled.button`
     width: 80px;
-    height: 80%;
+    height: 50%;
     border-radius: 30px;
     border-style: solid;
     border-color: #012340;
