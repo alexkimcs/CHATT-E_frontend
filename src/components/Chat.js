@@ -10,11 +10,11 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 15%;
+    margin-top: 0;
 
     @media screen and (max-width:768px) {
         display: block;
-        margin-top: 10%;
+        margin-top: 0;
     }
 `
 
