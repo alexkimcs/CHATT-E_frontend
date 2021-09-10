@@ -21,7 +21,7 @@ const StyledContainer = styled.div`
 const StyledChatRooms = styled.div`
     width: 28vw;
     min-width: 20vw;
-    height: 30vh;
+    height: 50vh;
     background-color: #6085A6;
     display: inline-block;
     border-radius: 0px 25px 25px 0px;
