@@ -9,12 +9,13 @@ import Landing from './components/Landing'
 import Chat from './components/Chat'
 import {Route} from 'react-router-dom';
 
-let socket = io('http://localhost:5000');
-
+// let socket = io('https://chatte-deploy.herokuapp.com/);
+let socket = io('http://localhost:3000/')
 function App() {
 
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [loginData, setLoginData] = useState([{}]);
 
   useEffect(() => {
     socket.on('message', (message) => {
@@ -24,19 +25,24 @@ function App() {
   const [mongoMessages, setMongoMessages] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:4001/api/messages').then(response => {
+    axios.get('https://chatte-deploy.herokuapp.com/api/messages').then(response => {
       // gets the initial data
       setMongoMessages(response.data)
     })
   },[messages]);
   
-  
+  useEffect(() => {
+    axios.get('https://chatte-deploy.herokuapp.com/api/users').then(response => {
+      // gets the initial data
+      setLoginData(response.data)
+    })
+  },[loginData]);
   function submitHandler(event) {
     event.preventDefault();
   
     socket.emit('chatMessage', event.target.firstChild.value);
   
-    axios.post("http://localhost:4001/api/messages", {
+    axios.post('https://chatte-deploy.herokuapp.com/api/messages', {
       name: 'User',
       message: event.target.firstChild.value
     })
@@ -56,7 +62,10 @@ function App() {
   return (
     <div>
       <Route exact path="/signup" component={SignUp}/>
-      <Route exact path="/signin" component={Signin}/> 
+      <Route exact path="/signin">
+
+        <Signin loginData = {loginData}/>
+      </Route> 
       <Route exact path="/chat" >
         <Chat 
           message={message}
@@ -66,6 +75,9 @@ function App() {
           sendMessage={sendMessage}
           setMessage={setMessage}
         />
+
+
+
       </Route>
       <Route exact path="/" component={Landing}/>
 

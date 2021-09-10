@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 
@@ -58,6 +58,8 @@ const StyledProfile = styled.div`
 `
 
 const Styledusername = styled.input`
+
+
     width: 250px;
     height: 30px;
     border-radius: 30px;
@@ -75,22 +77,26 @@ const Styledusername = styled.input`
         outline: none;
     }
 `
-const Styledpassword = styled.input`
-    width: 250px;
-    height: 30px;
-    border-radius: 30px;
-    border-style: none;
-    background-color: rgba(230,230,230,.75);
-    padding-left: 15px;
+const StyledInput = styled.div`
 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    display: block; 
-
-    :focus{
-        outline: none;
+    input{
+        width: 250px;
+        height: 30px;
+        border-radius: 30px;
+        border-style: none;
+        background-color: rgba(230,230,230,.75);
+        padding-left: 15px;
+    
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        display: block; 
+    
+        :focus{
+            outline: none;
+        }
     }
+
 `
 
 
@@ -132,9 +138,28 @@ const StyledButtons = styled.div`
 
 `;
 
+function Signin(props) {
+    const loginData = props.loginData
+    const initialState = {username: "", password: ""}
+    const [nextURL,setNextURL]=useState("/signin")
+    const [formState,setFormState]=useState(initialState)
+
+    const handleChange = (event) => {
+        setFormState({ ...formState, [event.target.id]: event.target.value })
+        event.preventDefault()
+        loginData.map((object)=>{
+            if((object.name === formState.username) && (object.password === event.target.value)){
+                
+                setNextURL("/chat")
+            }})
+        console.log(formState)
+        
+    };
 
 
-function Signin() {
+    const handleSubmit = (event) => {
+        
+    };
     return (
         <body >
             <Styledheader>
@@ -149,24 +174,23 @@ function Signin() {
             <Styledcontainer>
                 <StyledProfile>
                 </StyledProfile>
-                
+                <form onSubmit={handleSubmit}>
+                    
+                    
+                    <StyledInput>
+                        <input id="username" type="text" onChange={handleChange} value={formState.username}/>
+ 
+                        <input id="password" type="text" onChange={handleChange} value={formState.password}/>
+                    </StyledInput>
+                    
+                    <StyledButtons>
+                        <Link to={`${nextURL}`}>
+                            <button type="submit">Log in</button>
+                        </Link> 
+                            <button >Sign Up</button>
+                    </StyledButtons>
 
-                <Styledusername>
-
-                </Styledusername>
-
-                <Styledpassword>
-
-                </Styledpassword>
-
-
-                <StyledButtons>
-                    <Link to="/chat">
-                        <button>Log in</button>
-                    </Link>
-                        
-                        <button>Sign up</button>
-                </StyledButtons>
+                </form>
             </Styledcontainer>
 
 
