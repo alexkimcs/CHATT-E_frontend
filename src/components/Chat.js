@@ -10,20 +10,30 @@ const StyledContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 25%;
+
+    @media screen and (max-width:768px) {
+        display: block;
+        margin-top: 10%;
+    }
 `
 
 const StyledChatRooms = styled.div`
-    width: 25%;
-    min-width: 200px;
-    height: 700px;
+    width: 28vw;
+    min-width: 20vw;
+    height: 30vh;
     background-color: #6085A6;
     display: inline-block;
     border-radius: 0px 25px 25px 0px;
 
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 768px) {
+        width: 100vw;
+        border-radius: 25px;
+        margin-bottom: 2em;
 
-        border-radius: 0px;
-
+        header {
+            margin: 1em auto;
+        }
       }
 `
 
@@ -32,20 +42,30 @@ const StyledChat = styled.div`
     height: 700px;
     background-color: #6085A6;
     border-radius: 25px 0px 0px 25px;
-
-    @media screen and (max-width: 650px) {
-
-        border-radius: 0px;
+    padding-top: 1em;
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        border-radius: 25px;
 
       }
 `
 
 const StyledChatContainer = styled.div`
-    height: 40px;
+    height: 100px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+            margin: .25em 0;
+        }
+
+    }
 `
 
 const StyledChatRoom = styled.button`
@@ -55,6 +75,12 @@ const StyledChatRoom = styled.button`
     border-style: none;
     background-color: rgba(230,230,230,.75);
     font-size: 15px;
+
+    @media screen and (max-width:768px) {
+        border-radius: 30px;
+        margin: 0 auto;
+
+    }
 
 `
 
@@ -141,23 +167,29 @@ const StyledSend = styled.button`
     }
 `
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
     background-color: rgba(230,230,230,.75);
     border-radius: 0 2em 2em 0;
     padding: 0.5em;
     margin-bottom: 20px;
     margin-top: 10px;
-    width: 92%;
+    width: 70%;
     height:60px;
     h1{
         font-size: 2.5em;
-        margin: 0;
+        /* margin: 0 .5em; */
         color: black;
     }
     
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 768px) {
+        border-radius: 25px;
+        width: 30%;
+      }
     
 `;
 
@@ -171,7 +203,7 @@ function Chat({message, messages, setMessage, sendMessage, submitHandler, mongoM
             {/* sidebar with chats */}
             <StyledChatRooms>
                 <HeaderContainer>
-                    <Logo />
+                    {/* <Logo /> */}
                     <h1>Chats</h1>
                 </HeaderContainer>
 
